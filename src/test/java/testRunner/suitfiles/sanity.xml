@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Amazon_Sanity_Suite">
+    <groups>
+        <run>
+            <include name="sanity"></include>
+        </run>
+    </groups>
+    
+    <listeners>
+        <listener class-name="com.amazon.customlisteners.MyListener"></listener>
+    </listeners>
+    
+    <test verbose="2" preserve-order="true" name="C:/Users/91844/IdeaProjects/amazon-selenium-framework">
+        <classes>
+            <class name="com.amazon.tests.RegistrationPageTest">
+                <methods>
+                    <include name="isLogoPresentTest"/>
+                    <include name="pageTitleTest"/>
+                    <include name="verifyMobileNumberTest"/>
+                    <include name="signInLinkTest"/>
+                    <include name="createBusinessAccountTest"/>
+                    <include name="fieldsOnThePageTest"/>
+                </methods>
+            </class>
+            <class name="com.amazon.tests.SignInPageTest">
+                <methods>
+                    <include name="isLogoPresentTest"/>
+                    <include name="PageTitleTest"/>
+                    <include name="backAndForthScenariosTest"/>
+                    <include name="signInWithUnregisteredEmailIdTest"/>
+                    <include name="signInWithInvalidEmailIdTest"/>
+                    <include name="signInWitValidCredentialsTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
