@@ -29,6 +29,10 @@ public class BaseTest {
     public void baseSetup() {
         configReader = new ConfigReader();
 
+        // ✅ Debug logs to verify config file values
+        System.out.println("✅ Browser from config: " + configReader.getBrowser());
+        System.out.println("✅ URL from config: " + configReader.getUrl());
+
         // Initialize driver through Basepage after browser is configured
         basepage = new Basepage(null); // temp null to allow getDriver call
         driver = basepage.getDriver(configReader.getBrowser());
@@ -43,7 +47,7 @@ public class BaseTest {
         businessPage = new BusinessPage(driver);
 
         // Excel Reader Initialization
-        String excelPath = Paths.get("src", "test", "java", "resource", "test_data", configReader.getFieldsVerificationExcelName()).toString();
+        String excelPath = Paths.get("src", "test", "resource", "test_data", configReader.getFieldsVerificationExcelName()).toString();
         excelReader = new ExcelReader(excelPath);
     }
 

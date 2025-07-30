@@ -36,6 +36,16 @@ public class Basepage {
     public WebDriver getDriver(String browser){
          if (browser.equalsIgnoreCase("chrome")) {
              ChromeOptions options = new ChromeOptions(); //for Incognito mode//
+             // Prevent automation detection
+             options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+             options.setExperimentalOption("useAutomationExtension", false);
+             options.addArguments("--disable-blink-features=AutomationControlled");
+
+             // Use a real user agent
+             options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
+                     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36");
+
+             // Optional - incognito mode
              options.addArguments("--incognito");
              driver = new ChromeDriver();
              driver.manage().window().maximize();
